@@ -1,25 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useQuery } from 'react-query';
+
+import Button from '@mui/material/Button';
+import useStore from './store';
 
 function App() {
+  const {
+    counter,
+    catFact,
+    setCatFact,
+    catFactFetcher,
+    increment,
+    decrement,
+  } = useStore();
+
+  const {
+    isLoading, isError, refetch, isRefetching, isRefetchError,
+  } = useQuery('catFact', catFactFetcher, {
+    onSuccess: (data) => setCatFact(data),
+    cacheTime: 1000 * 60 * 10, // 10 minutes
+    staleTime: 1000 * 60 * 5, // 5 minutes
+  });
+
+  const onButtonClick = () => {
+    setCatFact('');
+    refetch();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <>
+            <div>
+                <p>{counter}</p>
+                <Button variant="contained" onClick={decrement}>
+                    -
+                </Button>
+                <Button variant="contained" onClick={increment}>
+                    +
+                </Button>
+            </div>
+            <div>
+                <div>
+                    {isLoading || isRefetching ? <p>Cat Fact: Loading</p> : ''}
+                    {isError || isRefetchError ? <p>Cat Fact: Error</p> : ''}
+                    {catFact ? <p>Cat Fact: {catFact}</p> : ''}
+
+                    <Button variant="contained" onClick={onButtonClick}>
+                        Refetch Cat Fact
+                    </Button>
+                </div>
+            </div>
+        </>
   );
 }
 
