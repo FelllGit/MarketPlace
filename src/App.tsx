@@ -1,8 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import React from 'react';
 
-import { Home } from './components/Home/Home';
-import { SharedLayout } from './components/SharedLayout/SharedLayout';
+import Home from './components/Home/Home';
+import SharedLayout from './components/SharedLayout/SharedLayout';
 
 const router = createBrowserRouter([
   {
