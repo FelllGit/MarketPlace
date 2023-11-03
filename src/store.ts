@@ -1,12 +1,12 @@
 import { create } from 'zustand';
 
 interface IExample {
-  counter: number;
-  increment: () => void;
-  decrement: () => void;
-  catFact: string | undefined;
-  setCatFact: (fact: string) => void;
-  catFactFetcher: () => Promise<string>;
+  counter: number
+  increment: () => void
+  decrement: () => void
+  catFact: string | undefined
+  setCatFact: (fact: string) => void
+  catFactFetcher: () => Promise<string>
 }
 
 // Create the store
