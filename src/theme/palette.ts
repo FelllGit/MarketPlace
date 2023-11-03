@@ -1,3 +1,5 @@
-export const palette = {
+const palette = {
 
 };
+
+export default palette;
