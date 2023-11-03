@@ -1,27 +1,31 @@
-import { useQuery } from 'react-query'
+import { useQuery } from 'react-query';
 
-import Button from '@mui/material/Button'
-import useStore from '../../store'
+import Button from '@mui/material/Button';
+import useStore from '../../store';
 
 export const Home = () => {
-	const { counter, catFact, setCatFact, catFactFetcher, increment, decrement } = useStore()
+  const {
+    counter, catFact, setCatFact, catFactFetcher, increment, decrement,
+  } = useStore();
 
-	const { isLoading, isError, refetch, isRefetching, isRefetchError } = useQuery(
-		'catFact',
-		catFactFetcher,
-		{
-			onSuccess: (data) => setCatFact(data),
-			cacheTime: 1000 * 60 * 10, // 10 minutes
-			staleTime: 1000 * 60 * 5, // 5 minutes
-		}
-	)
+  const {
+    isLoading, isError, refetch, isRefetching, isRefetchError,
+  } = useQuery(
+    'catFact',
+    catFactFetcher,
+    {
+      onSuccess: (data) => setCatFact(data),
+      cacheTime: 1000 * 60 * 10, // 10 minutes
+      staleTime: 1000 * 60 * 5, // 5 minutes
+    },
+  );
 
-	const onButtonClick = () => {
-		setCatFact('')
-		refetch()
-	}
+  const onButtonClick = () => {
+    setCatFact('');
+    refetch();
+  };
 
-	return (
+  return (
 		<div>
 			<div>
 				<p>{counter}</p>
@@ -45,5 +49,5 @@ export const Home = () => {
 			</div>
 			aaa
 		</div>
-	)
-}
+  );
+};
