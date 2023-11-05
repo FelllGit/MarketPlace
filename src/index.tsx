@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { theme } from './theme';
+import theme from './theme';
 
 const queryClient = new QueryClient();
 

@@ -1,6 +1,8 @@
 import { Components } from '@mui/material';
 import { Theme } from '@mui/material/styles';
 
-export const components: Components<Theme> = {
+const components: Components<Theme> = {
 
 };
+
+export default components;

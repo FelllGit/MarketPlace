@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import Button from '@mui/material/Button';
 import useStore from '../../store';
 
-export const Home = () => {
+const Home = () => {
   const {
     counter, catFact, setCatFact, catFactFetcher, increment, decrement,
   } = useStore();
@@ -51,3 +51,5 @@ export const Home = () => {
 		</div>
   );
 };
+
+export default Home;

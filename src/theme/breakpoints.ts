@@ -4,7 +4,7 @@ declare module '@mui/material/styles' {
   }
 }
 
-export const breakpoints = {
+const breakpoints = {
   values: {
     xs: 0,
     sm: 320,
@@ -13,3 +13,5 @@ export const breakpoints = {
     xl: false,
   },
 };
+
+export default breakpoints;

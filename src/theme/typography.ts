@@ -1,5 +1,7 @@
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
-export const typography: TypographyOptions = {
+const typography: TypographyOptions = {
 
 };
+
+export default typography;
