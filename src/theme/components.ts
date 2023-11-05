@@ -8,22 +8,29 @@ const components: Components<Theme> = {
         backgroundColor: 'transparent',
         color: '#000',
         marginTop: '30px',
+        marginBottom: '98px',
         boxShadow: 'none',
-      },
-    },
-  },
-  MuiToolbar: {
-    styleOverrides: {
-      root: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8rem',
       },
     },
   },
   MuiButton: {
     styleOverrides: {
-      root: () => ({ // Make sure to pass the theme as a parameter
+      root: () => ({
+        display: 'flex',
+        padding: '10px',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '10px',
+        borderRadius: '3px',
+        border: '1px solid #C7C7C7',
+        color: '#000000',
+      }),
+    },
+  },
+  MuiGrid: {
+    styleOverrides: {
+      root: () => ({
+        margin: 'auto',
       }),
     },
   },

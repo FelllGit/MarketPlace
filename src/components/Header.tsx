@@ -1,5 +1,4 @@
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
@@ -9,6 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import Button from '@mui/material/Button';
 import { styled, alpha } from '@mui/material/styles';
+import { Grid } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -75,41 +75,49 @@ const AccountButtons = styled('div')(({ theme }) => ({
 
 const Header = () => (
     <AppBar position="static">
-        <Toolbar>
-            <Typography variant="h6" component="div">
-                Logo
-            </Typography>
+        <Grid container spacing={4}>
+            <Grid item xs={2}>
+                <Typography variant="h6" component="div">
+                    Logo
+                </Typography>
+            </Grid>
 
-            <Search>
-                <SearchWrapper>
-                    <SearchIconWrapper>
-                        <SearchIcon />
-                    </SearchIconWrapper>
-                    <SearchInputBase
-                        placeholder="Пошук…"
-                        inputProps={{ 'aria-label': 'search' }}
-                        sx={{ width: '100%' }}
-                    />
-                </SearchWrapper>
-                <FindButton
-                    variant="contained"
-                    sx={{ borderRadius: '0 4px 4px 0' }}>
-                    Search
-                </FindButton>
-            </Search>
+            <Grid item xs={7}>
+                <Search>
+                    <SearchWrapper>
+                        <SearchIconWrapper>
+                            <SearchIcon />
+                        </SearchIconWrapper>
+                        <SearchInputBase
+                            placeholder="Пошук…"
+                            inputProps={{ 'aria-label': 'search' }}
+                            sx={{ width: '100%' }}
+                        />
+                    </SearchWrapper>
+                    <FindButton
+                        variant="contained"
+                        sx={{ borderRadius: '0 4px 4px 0' }}>
+                        Search
+                    </FindButton>
+                </Search>
+            </Grid>
 
-            <AccountButtons>
-                <IconButton aria-label="show favorites" color="inherit">
-                    <FavoriteBorderIcon />
-                </IconButton>
-                <IconButton aria-label="show cart" color="inherit">
-                    <ShoppingCartIcon />
-                </IconButton>
-                <IconButton aria-label="show cart" color="inherit">
-                    <PersonIcon />
-                </IconButton>
-            </AccountButtons>
-        </Toolbar>
+            <Grid item xs={1} />
+
+            <Grid item xs={2}>
+                <AccountButtons>
+                    <IconButton aria-label="show favorites" color="inherit">
+                        <FavoriteBorderIcon />
+                    </IconButton>
+                    <IconButton aria-label="show cart" color="inherit">
+                        <ShoppingCartIcon />
+                    </IconButton>
+                    <IconButton aria-label="show cart" color="inherit">
+                        <PersonIcon />
+                    </IconButton>
+                </AccountButtons>
+            </Grid>
+        </Grid>
     </AppBar>
 );
 
