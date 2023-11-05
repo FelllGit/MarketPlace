@@ -25,18 +25,9 @@ const Search = styled('div')(({ theme }) => ({
   borderColor: theme.palette.divider,
 }));
 
-const AccountButtons = styled('div')(({ theme }) => ({
-  display: 'inline-flex', // Display children in a row
-  alignItems: 'center', // Center children vertically
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: theme.spacing(1), // Or any desired value
-  marginRight: theme.spacing(1), // Or any desired value
-  width: 'fit-content', // Width equal to the width of the child elements
+const SearchWrapper = styled('div')(() => ({
+  color: 'inherit',
+  width: '100%',
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -60,9 +51,26 @@ const SearchInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const SearchWrapper = styled('div')(() => ({
-  color: 'inherit',
-  width: '100%',
+const FindButton = styled(Button)(({ theme }) => ({
+  backgroundColor: 'transparent',
+  color: '#000',
+  boxShadow: 'none',
+  borderLeft: '1px solid',
+  borderColor: theme.palette.divider,
+}));
+
+const AccountButtons = styled('div')(({ theme }) => ({
+  display: 'inline-flex', // Display children in a row
+  alignItems: 'center', // Center children vertically
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginLeft: theme.spacing(1), // Or any desired value
+  marginRight: theme.spacing(1), // Or any desired value
+  width: 'fit-content', // Width equal to the width of the child elements
 }));
 
 const Header = () => (
@@ -83,11 +91,11 @@ const Header = () => (
                         sx={{ width: '100%' }}
                     />
                 </SearchWrapper>
-                <Button
+                <FindButton
                     variant="contained"
                     sx={{ borderRadius: '0 4px 4px 0' }}>
                     Search
-                </Button>
+                </FindButton>
             </Search>
 
             <AccountButtons>

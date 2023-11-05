@@ -23,12 +23,7 @@ const components: Components<Theme> = {
   },
   MuiButton: {
     styleOverrides: {
-      root: ({ theme }) => ({ // Make sure to pass the theme as a parameter
-        backgroundColor: 'transparent',
-        color: '#000',
-        boxShadow: 'none',
-        borderLeft: '1px solid',
-        borderColor: theme.palette.divider, // Now theme is accessible
+      root: () => ({ // Make sure to pass the theme as a parameter
       }),
     },
   },
