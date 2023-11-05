@@ -47,7 +47,6 @@ const Home = () => {
 					</Button>
 				</div>
 			</div>
-			aaa
 		</div>
   );
 };
