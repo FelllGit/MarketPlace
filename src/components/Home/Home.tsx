@@ -22,12 +22,19 @@ const MainCategories = styled('div')({
   display: 'inline-flex',
   alignItems: 'flex-start',
   gap: '24px',
+  width: '100%',
+  overflow: 'scroll',
+});
+
+const MainCategoriesButton = styled(Button)({
+  whiteSpace: 'nowrap',
+  minWidth: 'fit-content',
 });
 
 const NestedMenuWrapper = styled('div')({
   width: '100%',
   position: 'absolute',
-  top: '100%', // This positions the top of the NestedMenu right below the button
+  top: '100%',
   left: 0,
   zIndex: 2,
   backgroundColor: '#FFFFFF',
@@ -49,14 +56,32 @@ const Home = () => {
   //   };
   return (
         <Content>
-            <Grid container spacing={4} marginBottom={'100px'}>
-                <Grid item sm={12} md={6} lg={4}>
+            <Grid container marginBottom={'100px'} width={'100%'}>
+                <Grid
+                    item
+                    sm={12}
+                    md={6}
+                    lg={4}
+                    padding={'8px'}
+                    margin={'auto'}>
                     <BannerAd />
                 </Grid>
-                <Grid item sm={12} md={6} lg={4}>
+                <Grid
+                    item
+                    sm={12}
+                    md={6}
+                    lg={4}
+                    padding={'8px'}
+                    margin={'auto'}>
                     <BannerAd />
                 </Grid>
-                <Grid item sm={12} md={6} lg={4}>
+                <Grid
+                    item
+                    sm={12}
+                    md={6}
+                    lg={4}
+                    padding={'8px'}
+                    margin={'auto'}>
                     <BannerAd />
                 </Grid>
             </Grid>
@@ -82,21 +107,23 @@ const Home = () => {
             </DropdownContainer>
 
             <MainCategories>
-                <Button>Все</Button>
-                <Button>Дитячі товари</Button>
-                <Button>Дім і сад</Button>
-                <Button>Інструменти</Button>
-                <Button>Одяг та взуття</Button>
-                <Button>Спорт і відпочинок</Button>
-                <Button>Техніка та електроніка</Button>
+                <MainCategoriesButton>Все</MainCategoriesButton>
+                <MainCategoriesButton>Дитячі товари</MainCategoriesButton>
+                <MainCategoriesButton>Дім і сад</MainCategoriesButton>
+                <MainCategoriesButton>Інструменти</MainCategoriesButton>
+                <MainCategoriesButton>Одяг та взуття</MainCategoriesButton>
+                <MainCategoriesButton>Спорт і відпочинок</MainCategoriesButton>
+                <MainCategoriesButton>
+                    Техніка та електроніка
+                </MainCategoriesButton>
             </MainCategories>
 
             <Grid
                 container
-                spacing={4}
                 display={'flex'}
                 sx={{ flexDirection: { sm: 'column', md: 'row' } }}
-                marginBottom={'100px'}>
+                marginBottom={'100px'}
+                width={'100%'}>
                 <Grid
                     item
                     sm={12}

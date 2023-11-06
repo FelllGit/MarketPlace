@@ -30,7 +30,11 @@ const components: Components<Theme> = {
   MuiGrid: {
     styleOverrides: {
       root: () => ({
+        padding: '0px',
+      }),
+      item: () => ({
         margin: 'auto',
+        padding: '4px',
       }),
     },
   },

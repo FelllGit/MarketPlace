@@ -8,16 +8,12 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 const NestedMenuWrapper = styled('div')(({ theme }) => ({
-  position: 'relative',
-  display: 'flex', // Add this line to make Search a flex container
   borderRadius: theme.shape.borderRadius,
+  borderTopLeftRadius: '0px',
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  marginLeft: 0,
-  width: '100%',
-  alignItems: 'center',
   border: '1px solid',
   borderColor: theme.palette.divider,
 }));
