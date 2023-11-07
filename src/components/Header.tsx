@@ -82,12 +82,14 @@ const Header = () => {
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   return (
         <AppBar position="static">
-            <Grid container spacing={4} width={'100%'}>
-                <Grid item xs={2}>
+            <Grid container width={'100%'}>
+                <Grid item xs={1}>
                     <Typography variant="h6" component="div">
                         Logo
                     </Typography>
                 </Grid>
+
+                <Grid item xs={1} />
 
                 <Grid item xs={7}>
                     <Search>
@@ -117,7 +119,7 @@ const Header = () => {
 
                 <Grid item xs={1} />
 
-                <Grid item xs={2}>
+                <Grid item xs={2} display={'flex'} justifyContent={'end'}>
                     <AccountButtons>
                         <IconButton aria-label="show favorites" color="inherit">
                             <FavoriteBorderIcon />

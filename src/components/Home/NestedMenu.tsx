@@ -26,6 +26,9 @@ const CategoryButton = styled(Button)(() => ({
 const SubCategoryButton = styled(Button)(() => ({
   border: '0px',
   borderBottom: '1px solid',
+  whiteSpace: 'nowrap',
+  minWidth: 'fit-content',
+  marginBottom: '1em',
 }));
 
 interface Category {
@@ -249,15 +252,11 @@ const NestedMenu: React.FC = () => {
                     margin={0}
                     paddingRight={1}
                     paddingLeft={1}>
-                    <Grid container spacing={2}>
+                    <Grid container>
                         {selectedCategoryDetails?.subcategories.map(
                           (subcategory, index) => (
                                 <Grid
                                     item
-                                    xs={6}
-                                    sm={4}
-                                    md={3}
-                                    lg={2}
                                     key={`${selectedCategoryDetails.title}-${subcategory}-${index}`}>
                                     <SubCategoryButton fullWidth>
                                         {subcategory}
