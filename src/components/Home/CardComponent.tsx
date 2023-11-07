@@ -1,5 +1,7 @@
 import { styled } from '@mui/material/styles';
-import { Box, Grid, Typography } from '@mui/material';
+import {
+  Box, Button, Fab, Grid, Typography,
+} from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 import Icon from '../../icons/image.svg';
@@ -31,24 +33,44 @@ const LikeButton = styled(FavoriteBorderIcon)({
 const CardComponent = () => (
     <Card>
         <ContentWrapper>
-            <Box
-                component="img"
-                src={Icon}
-                sx={{ height: 100 }}
-                color={'#868686'}
-                alt="Description"
-            />
-            <Typography variant='h4'>Lorem ipsum</Typography>
-            <Grid container spacing={1}>
-                <Grid item xs={10} textAlign={'left'}>
-                    <Typography variant='body1'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta ratione doloribus quo! Eius, nostrum? Quis modi eligendi dicta perferendis quia quo omnis deleniti optio adipisci. Libero reiciendis provident laboriosam. Harum?</Typography>
+            <Grid container direction={'column'}>
+                <Grid item>
+                    <Box
+                        component="img"
+                        src={Icon}
+                        sx={{ height: 100 }}
+                        color={'#868686'}
+                        alt="Description"
+                    />
+                    <Typography variant="h4">Lorem ipsum</Typography>
                 </Grid>
-                <Grid item xs={2}>
-                    <LikeButton />
+                <Grid item>
+                    <Typography variant="body1">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Soluta ratione doloribus!
+                    </Typography>
+                    <Typography variant="body1">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Soluta ratione doloribus!
+                    </Typography>
+                </Grid>
+                <Grid item margin={'0'}>
+                    <Typography variant="h5" textAlign={'start'}>
+                        Price 5.99$
+                    </Typography>
                 </Grid>
             </Grid>
         </ContentWrapper>
-        <Typography variant='h5'>Price 5.99$</Typography>
+        <Grid container>
+            <Grid item xs={10}>
+                <Button fullWidth>Купити</Button>
+            </Grid>
+            <Grid item xs={2}>
+                <Fab size='small' sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
+                    <LikeButton />
+                </Fab>
+            </Grid>
+        </Grid>
     </Card>
 );
 
