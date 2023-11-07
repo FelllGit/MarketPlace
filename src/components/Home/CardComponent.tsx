@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import {
-  Box, Button, Fab, Grid, Typography,
+  Box, Button, Grid, IconButton, Typography,
 } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
@@ -66,9 +66,9 @@ const CardComponent = () => (
                 <Button fullWidth>Купити</Button>
             </Grid>
             <Grid item xs={2}>
-                <Fab size='small' sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
+                <IconButton>
                     <LikeButton />
-                </Fab>
+                </IconButton>
             </Grid>
         </Grid>
     </Card>
