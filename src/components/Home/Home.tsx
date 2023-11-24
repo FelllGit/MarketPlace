@@ -11,50 +11,50 @@ import CardComponent from './CardComponent';
 import NestedMenu from './NestedMenu';
 
 const Content = styled('div')({
-  marginTop: '20px',
-  marginBottom: '20px',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '20px',
+    marginTop: '20px',
+    marginBottom: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '20px',
 });
 
 const MainCategories = styled('div')({
-  display: 'inline-flex',
-  alignItems: 'flex-start',
-  gap: '24px',
-  width: '100%',
-  overflow: 'scroll',
+    display: 'inline-flex',
+    alignItems: 'flex-start',
+    gap: '24px',
+    width: '100%',
+    overflow: 'scroll',
 });
 
 const MainCategoriesButton = styled(Button)({
-  whiteSpace: 'nowrap',
-  minWidth: 'fit-content',
+    whiteSpace: 'nowrap',
+    minWidth: 'fit-content',
 });
 
 const NestedMenuWrapper = styled('div')({
-  width: '100%',
-  position: 'absolute',
-  top: '100%',
-  left: 0,
-  zIndex: 2,
-  backgroundColor: '#FFFFFF',
+    width: '100%',
+    position: 'absolute',
+    top: '100%',
+    left: 0,
+    zIndex: 2,
+    backgroundColor: '#FFFFFF',
 });
 
 const DropdownContainer = styled('div')({
-  position: 'relative',
+    position: 'relative',
 });
 
 const Home = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
-  };
+    const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(anchorEl ? null : event.currentTarget);
+    };
 
-  //   const handleClose = () => {
-  //     setAnchorEl(null);
-  //   };
-  return (
+    //   const handleClose = () => {
+    //     setAnchorEl(null);
+    //   };
+    return (
         <Content>
             <Grid container marginBottom={'100px'} width={'100%'}>
                 <Grid
@@ -92,10 +92,10 @@ const Home = () => {
                     aria-haspopup="true"
                     onMouseDown={handleButtonClick}
                     sx={{
-                      backgroundColor: '#868686',
-                      color: '#FFFFFF',
-                      width: '102px',
-                      zIndex: 1,
+                        backgroundColor: '#868686',
+                        color: '#FFFFFF',
+                        width: '102px',
+                        zIndex: 1,
                     }}>
                     Категорії
                 </Button>
@@ -200,7 +200,7 @@ const Home = () => {
 				</div>
 			</div> */}
         </Content>
-  );
+    );
 };
 
 export default Home;
