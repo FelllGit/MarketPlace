@@ -216,7 +216,6 @@ const CreateAdPage = () => {
     }
   };
 
-
   const onDragEnd = (result: any) => {
     if (!result.destination) {
       return;
