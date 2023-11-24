@@ -81,59 +81,59 @@ const Header = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   return (
-        <AppBar position="static">
-            <Grid container width={'100%'}>
-                <Grid item xs={1}>
-                    <Typography variant="h6" component="div">
-                        Logo
-                    </Typography>
-                </Grid>
+    <AppBar position="static">
+      <Grid container width={'100%'}>
+        <Grid item xs={1}>
+          <Typography variant="h6" component="div">
+            Logo
+          </Typography>
+        </Grid>
 
-                <Grid item xs={1} />
+        <Grid item xs={1} />
 
-                <Grid item xs={7}>
-                    <Search>
-                        <SearchWrapper>
-                            <SearchIconWrapper
-                                sx={{
-                                  visibility: { xs: 'hidden', md: 'visible' },
-                                  marginTop: '-4px',
-                                }}>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <SearchInputBase
-                                placeholder="Пошук…"
-                                inputProps={{ 'aria-label': 'search' }}
-                                sx={{ width: '100%' }}
-                            />
-                        </SearchWrapper>
-                        <FindButton
-                            variant="contained"
-                            sx={{
-                              borderRadius: '0 4px 4px 0',
-                            }}>
-                            {matches ? 'Пошук' : <SearchIcon />}
-                        </FindButton>
-                    </Search>
-                </Grid>
+        <Grid item xs={7}>
+          <Search>
+            <SearchWrapper>
+              <SearchIconWrapper
+                sx={{
+                  visibility: { xs: 'hidden', md: 'visible' },
+                  marginTop: '-4px',
+                }}>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <SearchInputBase
+                placeholder="Пошук…"
+                inputProps={{ 'aria-label': 'search' }}
+                sx={{ width: '100%' }}
+              />
+            </SearchWrapper>
+            <FindButton
+              variant="contained"
+              sx={{
+                borderRadius: '0 4px 4px 0',
+              }}>
+              {matches ? 'Пошук' : <SearchIcon />}
+            </FindButton>
+          </Search>
+        </Grid>
 
-                <Grid item xs={1} />
+        <Grid item xs={1} />
 
-                <Grid item xs={2} display={'flex'} justifyContent={'end'}>
-                    <AccountButtons>
-                        <IconButton aria-label="show favorites" color="inherit">
-                            <FavoriteBorderIcon />
-                        </IconButton>
-                        <IconButton aria-label="show cart" color="inherit">
-                            <ShoppingCartIcon />
-                        </IconButton>
-                        <IconButton aria-label="show cart" color="inherit">
-                            <PersonIcon />
-                        </IconButton>
-                    </AccountButtons>
-                </Grid>
-            </Grid>
-        </AppBar>
+        <Grid item xs={2} display={'flex'} justifyContent={'end'}>
+          <AccountButtons>
+            <IconButton aria-label="show favorites" color="inherit">
+              <FavoriteBorderIcon />
+            </IconButton>
+            <IconButton aria-label="show cart" color="inherit">
+              <ShoppingCartIcon />
+            </IconButton>
+            <IconButton aria-label="show cart" color="inherit">
+              <PersonIcon />
+            </IconButton>
+          </AccountButtons>
+        </Grid>
+      </Grid>
+    </AppBar>
   );
 };
 

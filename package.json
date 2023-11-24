@@ -11,9 +11,10 @@
         "@testing-library/jest-dom": "^5.17.0",
         "husky": "^8.0.3",
         "lint-staged": "^15.0.2",
-        "prettier": "^3.0.3",
         "react": "^18.2.0",
+        "react-beautiful-dnd": "^13.1.1",
         "react-dom": "^18.2.0",
+        "react-grid-dnd": "^2.1.2",
         "react-query": "^3.39.3",
         "react-router": "^6.18.0",
         "react-router-dom": "^6.17.0",
@@ -31,7 +32,8 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "prettify": "prettier --write ."
     },
     "eslintConfig": {
         "extends": [
@@ -63,6 +65,7 @@
         "@types/jest": "^27.5.2",
         "@types/node": "^16.18.59",
         "@types/react": "^18.2.33",
+        "@types/react-beautiful-dnd": "^13.1.7",
         "@types/react-dom": "^18.2.14",
         "@typescript-eslint/eslint-plugin": "^6.9.0",
         "@typescript-eslint/parser": "^6.9.0",

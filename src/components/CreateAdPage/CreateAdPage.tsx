@@ -1,35 +1,22 @@
 import {
-  Button, Grid, alpha, styled,
+  Autocomplete,
+  Button,
+  Grid,
+  ListSubheader,
+  TextField,
+  Typography,
 } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import React, { useState } from 'react';
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-
-const NestedMenuWrapper = styled('div')(({ theme }) => ({
-  borderRadius: theme.shape.borderRadius,
-  borderTopLeftRadius: '0px',
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  border: '1px solid',
-  borderColor: theme.palette.divider,
-}));
-
-const CategoryButton = styled(Button)(() => ({
-  justifyContent: 'initial',
-  border: '0px',
-}));
-
-const SubCategoryButton = styled(Button)(() => ({
-  border: '0px',
-  borderBottom: '1px solid',
-  whiteSpace: 'nowrap',
-  minWidth: 'fit-content',
-  marginBottom: '1em',
-}));
+const Content = styled('div')({
+  marginTop: '20px',
+  marginBottom: '20px',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '20px',
+});
 
 interface Category {
   title: string;
@@ -207,68 +194,139 @@ const categories: Category[] = [
   },
 ];
 
-const NestedMenu: React.FC = () => {
-  // Initialize with null or the first category
-  const [selectedCategory, selectCategory] = useState<string | null>(null);
+const options = categories.flatMap((category) => category.subcategories.map((subcategory) => ({
+  group: category.title,
+  title: subcategory,
+})));
 
-  const handleCategoryClick = (categoryTitle: string) => {
-    selectCategory(categoryTitle);
+const reorder = (list: string[], startIndex: number, endIndex: number): string[] => {
+  const result = Array.from(list);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+  return result;
+};
+
+const CreateAdPage = () => {
+  const [images, setImages] = useState<string[]>([]);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      const fileArray = Array.from(event.target.files).map((file) => URL.createObjectURL(file));
+      setImages((prevImages) => [...prevImages, ...fileArray]);
+    }
   };
 
-  const selectedCategoryDetails = categories.find(
-    (category) => category.title === selectedCategory,
-  );
+
+  const onDragEnd = (result: any) => {
+    if (!result.destination) {
+      return;
+    }
+
+    if (result.destination.index === result.source.index) {
+      return;
+    }
+
+    setImages((prevImages) =>
+      reorder(
+        prevImages,
+        result.source.index,
+        result.destination.index
+      )
+    );
+  };
 
   return (
-    <NestedMenuWrapper>
-      <Grid container>
-        <Grid
-          item
-          lg={3}
-          md={4}
-          sm={5}
-          borderRight="1px solid"
-          margin={0}>
-          {categories.map((category) => (
-            <CategoryButton
-              fullWidth
-              key={category.title}
-              onClick={() => handleCategoryClick(category.title)}>
-              {category === selectedCategoryDetails ? (
-                <CheckBoxIcon />
-              ) : (
-                <CheckBoxOutlineBlankIcon />
-              )}
-              {category.title}
-              <ArrowForwardIosIcon />
-            </CategoryButton>
-          ))}
-        </Grid>
-        <Grid
-          item
-          lg={9}
-          md={8}
-          sm={7}
-          margin={0}
-          paddingRight={1}
-          paddingLeft={1}>
-          <Grid container>
-            {selectedCategoryDetails?.subcategories.map(
-              (subcategory, index) => (
-                <Grid
-                  item
-                  key={`${selectedCategoryDetails.title}-${subcategory}-${index}`}>
-                  <SubCategoryButton fullWidth>
-                    {subcategory}
-                  </SubCategoryButton>
+    <Content>
+      <Typography variant='h2'>Створити оголошення</Typography>
+      <Typography variant='h6'>Опишіть в подробицях</Typography>
+      <form>
+        <Typography variant="subtitle2">Вкажіть назву</Typography>
+        <TextField
+          id='name'
+          placeholder='Наприклад , ноутбук Lenovo новий з нарантіею'
+          variant='outlined'
+          sx={{ width: '60%' }}
+        ></TextField>
+        <Typography variant='subtitle2' marginTop={'15px'}>Виберіть категорію</Typography>
+        <Autocomplete
+          id='grouped-demo'
+          options={options.sort((a, b) => -b.group.localeCompare(a.group))}
+          groupBy={(option) => option.group}
+          getOptionLabel={(option) => option.title}
+          renderInput={(params) => (
+            <TextField {...params} placeholder='Ноутбуки' />
+          )}
+          renderGroup={(params) => [
+            <ListSubheader
+              key={params.key}
+              component='div'
+              style={{
+                backgroundColor: 'white',
+                top: '-8px',
+                padding: '4px 10px',
+              }}
+            >
+              {params.group}
+            </ListSubheader>,
+            params.children,
+          ]}
+          sx={{ width: '40%' }}
+        />
+        <Typography variant='subtitle2' marginTop={'100px'}>Фото</Typography>
+        <Typography variant='caption'>Перше фото буде на обкладинці оголошення. Перетягніть, щоб змінити порядок фото.</Typography>
+
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId='Images' direction='horizontal'>
+            {(droppableProvided) => (
+              <div ref={droppableProvided.innerRef} {...droppableProvided.droppableProps} style={{ display: 'flex', flexWrap: 'wrap' }}>
+                <Grid container justifyContent={'flex-start'} alignItems={'flex-start'}>
+                  <Grid item xs={3} margin={'0px'}>
+                    <Button
+                      component='label'
+                      sx={{
+                        width: '270px',
+                        height: '270px',
+                        textDecoration: 'underline',
+                        padding: '0px',
+                      }}
+                    >
+                      Додати фото
+                      <input type='file' hidden onChange={handleFileChange} />
+                    </Button>
+                  </Grid>
+                  {images.map((image, index) => (
+                    <Draggable key={index} draggableId={`image-${index}`} index={index}>
+                      {(draggaleProvided) => (
+                        <Grid item xs={3} margin={'0px'} {...draggaleProvided.draggableProps} {...draggaleProvided.dragHandleProps} ref={draggaleProvided.innerRef}>
+                          <img
+                            src={image}
+                            alt={`upload-${index}`}
+                            style={{
+                              width: '270px',
+                              height: '270px',
+                              border: '1px solid',
+                              objectFit: 'cover',
+                            }}
+                          />
+                        </Grid>
+                      )}
+                    </Draggable>
+                  ))}
+                  {droppableProvided.placeholder}
                 </Grid>
-              ),
+              </div>
             )}
-          </Grid>
-        </Grid>
-      </Grid>
-    </NestedMenuWrapper>
+          </Droppable>
+        </DragDropContext>
+
+        <Typography variant='subtitle2' marginTop={'100px'}>Опис</Typography>
+        <TextField fullWidth multiline></TextField>
+
+        <Typography variant='subtitle2' marginTop={'15px'}>Місцезнаходження</Typography>
+        <TextField></TextField>
+      </form>
+    </Content >
   );
 };
 
-export default NestedMenu;
+export default CreateAdPage;

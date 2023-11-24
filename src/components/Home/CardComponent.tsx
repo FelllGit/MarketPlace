@@ -1,33 +1,33 @@
 import { styled } from '@mui/material/styles';
 import {
-  Box, Button, Grid, IconButton, Typography,
+    Box, Button, Grid, IconButton, Typography,
 } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 import Icon from '../../icons/image.svg';
 
 const Card = styled('div')({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  width: '100%',
-  maxWidth: '300px',
-  height: '440px',
-  padding: '1rem',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-  borderRadius: '10px',
-  backgroundColor: '#fff',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    maxWidth: '300px',
+    height: '440px',
+    padding: '1rem',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    borderRadius: '10px',
+    backgroundColor: '#fff',
 });
 
 const ContentWrapper = styled('div')({
-  width: '100%',
-  padding: '0.5rem',
-  textAlign: 'center',
+    width: '100%',
+    padding: '0.5rem',
+    textAlign: 'center',
 });
 
 const LikeButton = styled(FavoriteBorderIcon)({
-  cursor: 'pointer',
+    cursor: 'pointer',
 });
 
 const CardComponent = () => (

@@ -9,7 +9,8 @@
 		"airbnb-typescript/base",
 		"eslint:recommended",
 		"plugin:react/recommended",
-		"plugin:jest/recommended"
+		"plugin:jest/recommended",
+		"prettier"
 	],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
@@ -20,12 +21,15 @@
 			"jsx": true
 		}
 	},
-	"plugins": ["react", "@typescript-eslint", "jest"],
+	"plugins": [
+		"react",
+		"@typescript-eslint",
+		"jest"
+	],
 	"rules": {
 		"react/jsx-uses-react": "error",
 		"react/jsx-uses-vars": "error",
 		"import/extensions": "off",
-		"no-tabs": "off",
 		"react/react-in-jsx-scope": "off"
 	}
 }
