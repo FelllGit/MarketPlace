@@ -3,6 +3,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home/Home';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import CreateAdPage from './components/CreateAdPage/CreateAdPage';
+import Account from './components/Account/Account';
+import Advertisement from './components/Account/pages/Advertisement';
+import Messages from './components/Account/pages/Messages';
 
 const router = createBrowserRouter([
   {
@@ -14,8 +17,22 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/createad',
+        path: 'createad',
         element: <CreateAdPage />,
+      },
+      {
+        path: 'account',
+        element: <Account />,
+        children: [
+          {
+            index: true,
+            element: <Advertisement />,
+          },
+          {
+            path: 'messages',
+            element: <Messages />
+          },
+        ],
       },
     ],
   },
