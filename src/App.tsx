@@ -11,6 +11,7 @@ import Waiting from './components/Account/pages/AdvertisementPages/Waiting';
 import Unpaid from './components/Account/pages/AdvertisementPages/Unpaid';
 import Inactive from './components/Account/pages/AdvertisementPages/Inactive';
 import Rejected from './components/Account/pages/AdvertisementPages/Rejected';
+import Settings from './components/Account/pages/Settings';
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
             path: 'messages',
             element: <Messages />
           },
+          {
+            path: 'settings',
+            element: <Settings />
+          }
         ],
       },
     ],
