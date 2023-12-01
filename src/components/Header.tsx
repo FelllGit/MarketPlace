@@ -9,6 +9,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import Button from '@mui/material/Button';
 import { styled, alpha, useTheme } from '@mui/material/styles';
 import { Grid, useMediaQuery } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -84,9 +85,11 @@ const Header = () => {
     <AppBar position="static">
       <Grid container width={'100%'}>
         <Grid item xs={1}>
-          <Typography variant="h6" component="div">
-            Logo
-          </Typography>
+          <Link to={'/'}>
+            <Typography variant="h6" component="div">
+              Logo
+            </Typography>
+          </Link>
         </Grid>
 
         <Grid item xs={1} />
@@ -128,7 +131,7 @@ const Header = () => {
               <ShoppingCartIcon />
             </IconButton>
             <IconButton aria-label="show cart" color="inherit">
-              <PersonIcon />
+              <Link to={'account/advertisement/active'}><PersonIcon /></Link>
             </IconButton>
           </AccountButtons>
         </Grid>
