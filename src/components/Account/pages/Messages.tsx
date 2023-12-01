@@ -5,13 +5,13 @@ import MessageIcon from '@mui/icons-material/Message';
 import { useEffect, useRef, useState } from "react";
 
 const Messages = () => {
-    const div1Ref = useRef<HTMLDivElement>(null);
-    const div2Ref = useRef<HTMLDivElement>(null);
+    const toolbar = useRef<HTMLDivElement>(null);
+    const messageType = useRef<HTMLDivElement>(null);
     const [bottomPadding, setBottomPadding] = useState('0px');
 
     useEffect(() => {
-        const div1Height = div1Ref.current ? div1Ref.current.offsetHeight : 0;
-        const div2Height = div2Ref.current ? div2Ref.current.offsetHeight : 0;
+        const div1Height = toolbar.current ? toolbar.current.offsetHeight : 0;
+        const div2Height = messageType.current ? messageType.current.offsetHeight : 0;
 
         const remainingHeight = `calc(${div1Height + div2Height}px)`;
         setBottomPadding(remainingHeight);
@@ -25,7 +25,7 @@ const Messages = () => {
                 border: 'solid 1px #868686',
                 height: '100vh'
             }}>
-                <div ref={div1Ref} style={{
+                <div ref={toolbar} style={{
                     display: 'flex',
                     gap: '50px',
                     justifyContent: 'flex-end',
@@ -35,7 +35,7 @@ const Messages = () => {
                     <Typography sx={{ display: 'flex', justifyItems: 'center' }}><BookmarkBorderOutlinedIcon />Saved</Typography>
                     <Typography sx={{ display: 'flex', justifyItems: 'center' }}><DeleteOutlineOutlinedIcon />Basket</Typography>
                 </div>
-                <div ref={div2Ref} style={{
+                <div ref={messageType} style={{
                     display: 'flex',
                     gap: '30px',
                     padding: '20px 16px'
