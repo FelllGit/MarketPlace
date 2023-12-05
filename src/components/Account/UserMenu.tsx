@@ -11,7 +11,7 @@ export default function UserMenu() {
                 <Link to={'account/advertisement/active'}>Advertisement</Link>
                 <Link to={'account/messages'}>Messages</Link>
                 <Link to={'account/settings'}>Settings</Link>
-                <Button>Add an ad</Button>
+                <Link to={'createad'}>Add an ad</Link>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '60px' }}>
                 <Typography>Your profile</Typography>
