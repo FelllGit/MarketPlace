@@ -12,6 +12,12 @@ import Unpaid from './components/Account/pages/AdvertisementPages/Unpaid';
 import Inactive from './components/Account/pages/AdvertisementPages/Inactive';
 import Rejected from './components/Account/pages/AdvertisementPages/Rejected';
 import Settings from './components/Account/pages/Settings';
+import Login from './components/Authrotization/LogIn';
+import Signup from './components/Authrotization/SingUp';
+import CheckMail from './components/Authrotization/CheckMail';
+import Code from './components/Authrotization/Code';
+import CompleteProfile from './components/Authrotization/CompleteProfile';
+import AuthrotizationLayout from './components/Authrotization/AuthorizationLayout';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +70,32 @@ const router = createBrowserRouter([
             path: 'settings',
             element: <Settings />
           }
+        ],
+      },
+      {
+        path: 'login',
+        element: <Login />
+      },
+      {
+        path: 'signup',
+        element: <AuthrotizationLayout />,
+        children: [
+          {
+            index: true,
+            element: <Signup />
+          },
+          {
+            path: 'checkmail',
+            element: <CheckMail />
+          },
+          {
+            path: 'confirmcode',
+            element: <Code />
+          },
+          {
+            path: 'completeprofile',
+            element: <CompleteProfile />,
+          },
         ],
       },
     ],
