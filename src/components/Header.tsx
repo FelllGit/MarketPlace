@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -8,8 +9,9 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import Button from '@mui/material/Button';
 import { styled, alpha, useTheme } from '@mui/material/styles';
-import { Grid, useMediaQuery } from '@mui/material';
+import { Grid, Menu, useMediaQuery } from '@mui/material';
 import { Link } from 'react-router-dom';
+import UserMenu from './Account/UserMenu';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -81,6 +83,19 @@ const AccountButtons = styled('div')(({ theme }) => ({
 const Header = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
+
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  // Open menu function
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  // Close menu function
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <AppBar position="static">
       <Grid container width={'100%'}>
@@ -131,7 +146,32 @@ const Header = () => {
               <ShoppingCartIcon />
             </IconButton>
             <IconButton aria-label="show cart" color="inherit">
-              <Link to={'account/advertisement/active'}><PersonIcon /></Link>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <PersonIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <UserMenu />
+              </Menu>
             </IconButton>
           </AccountButtons>
         </Grid>
