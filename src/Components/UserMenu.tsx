@@ -1,6 +1,5 @@
 import { Button, Typography, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
-import PrimaryButton from './PrimaryButton';
 import styles from "../styles/UserMenu.module.scss";
 
 export default function UserMenu() {
@@ -15,9 +14,6 @@ export default function UserMenu() {
                 <Link className={styles.link} to={'account/advertisement/active'}><Typography sx={{ ...theme.typography.heading.xl2.regular }}>Advertisement</Typography></Link>
                 <Link className={styles.link} to={'account/messages'}><Typography sx={{ ...theme.typography.heading.xl2.regular }}>Messages</Typography></Link>
                 <Link className={styles.link} to={'account/settings'}><Typography sx={{ ...theme.typography.heading.xl2.regular }}>Settings</Typography></Link>
-                <Link to={'/createad'} id={styles.button}>
-                    <PrimaryButton>Add an ad</PrimaryButton>
-                </Link>
             </div>
             <div className={styles.profileInfo}>
                 <Typography sx={{ ...theme.typography.heading.xl2.bold }}>Your profile</Typography>

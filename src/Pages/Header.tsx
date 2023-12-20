@@ -37,7 +37,9 @@ const Header = () => {
         </Grid>
 
         <Grid item xs={10} display={'flex'} justifyContent={'end'} gap={2}>
-          <SecondaryButton textColor='#FFFFFF' hoverColor='#8CC0DE' style={{ ...theme.typography.paragraph.base.bold, borderWidth: '3px', padding: '15px 40px', textTransform: 'none' }}>Add an ad</SecondaryButton>
+          <Link to={'/createad'} id={styles.button} style={{ textDecoration: 'none' }}>
+            <SecondaryButton textColor='#FFFFFF' hoverColor='#8CC0DE' style={{ ...theme.typography.paragraph.base.bold, borderWidth: '3px', padding: '15px 40px', textTransform: 'none' }}>Add an ad</SecondaryButton>
+          </Link>
           <Box className={styles.accountButtons} sx={{ borderRadius: theme.shape.borderRadius }}>
             <IconButton aria-label="show favorites" color="inherit">
               <i className="ri-heart-fill" />
