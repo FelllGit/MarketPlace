@@ -68,7 +68,7 @@ const HomeSlider = () => {
                             border: 'none',
                         }
                     })}>
-                        <i className="ri-arrow-right-s-line" />
+                        <i className="ri-arrow-left-s-line" />
                     </ThirdButton>
                 </Grid>
                 <Grid item xs>
@@ -86,7 +86,7 @@ const HomeSlider = () => {
                             border: 'none',
                         },
                     })}>
-                        <i className="ri-arrow-left-s-line" />
+                        <i className="ri-arrow-right-s-line" />
                     </ThirdButton>
                 </Grid>
             </Grid>

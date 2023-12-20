@@ -37,7 +37,7 @@ const SearchComponent: React.FC = () => {
                 ),
                 endAdornment: (
                     <InputAdornment position="end">
-                        <PrimaryButton style={{ padding: '15px 18px', marginLeft: '-14px' }} onClick={handleSearch}>
+                        <PrimaryButton style={{ padding: '15px 18px', marginLeft: '-14px', border: 'none', borderRadius: '4px', borderTopLeftRadius: '0', borderBottomLeftRadius: '0' }} onClick={handleSearch}>
                             Search
                         </PrimaryButton>
                     </InputAdornment>

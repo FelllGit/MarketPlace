@@ -10,7 +10,7 @@ import UserMenu from '../Components/UserMenu';
 import { ReactComponent as Logo } from "../images/svg/smartmartlogo.svg";
 
 import styles from "../styles/Header.module.scss"
-import PrimaryButton from '../Components/PrimaryButton';
+import SecondaryButton from '../Components/SecondaryButton';
 
 const Header = () => {
   const theme = useTheme();
@@ -32,13 +32,13 @@ const Header = () => {
       <Grid container maxWidth="lg" alignSelf={'center'} display={'flex'} alignItems={'center'}>
         <Grid item xs={2}>
           <Link to={'/'}>
-            <Logo height={'39px'} />
+            <Logo height={'45px'} />
           </Link>
         </Grid>
 
-        <Grid item xs={10} display={'flex'} justifyContent={'end'}>
+        <Grid item xs={10} display={'flex'} justifyContent={'end'} gap={2}>
+          <SecondaryButton textColor='#FFFFFF' hoverColor='#8CC0DE' style={{ ...theme.typography.paragraph.base.bold, borderWidth: '3px', padding: '15px 40px', textTransform: 'none' }}>Add an ad</SecondaryButton>
           <Box className={styles.accountButtons} sx={{ borderRadius: theme.shape.borderRadius }}>
-            <PrimaryButton style={{ ...theme.typography.paragraph.base.bold, marginRight: '85px', color: theme.palette.gray, borderWidth: '3px', padding: '15px 40px', textTransform: 'none' }}>Add an ad</PrimaryButton>
             <IconButton aria-label="show favorites" color="inherit">
               <i className="ri-heart-fill" />
             </IconButton>

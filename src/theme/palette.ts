@@ -25,6 +25,7 @@ const palette = {
     },
     black: '#000',
     gray: '#C7C7C7',
+    hover: '#c7c7c7',
     whiteText: '#FFFFFF',
 };
 
