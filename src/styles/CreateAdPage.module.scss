@@ -1,0 +1,17 @@
+.createAdContainer {
+    .title {
+        margin-bottom: 3rem;
+    }
+
+    .subTitle {
+        margin-bottom: 2rem;
+    }
+
+    .input {
+        margin-bottom: 2rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

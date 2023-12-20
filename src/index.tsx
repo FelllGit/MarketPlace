@@ -1,11 +1,11 @@
 import { ThemeProvider } from '@emotion/react';
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import theme from './theme';
+import 'remixicon/fonts/remixicon.css'
 
 const queryClient = new QueryClient();
 

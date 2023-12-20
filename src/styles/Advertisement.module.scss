@@ -1,0 +1,24 @@
+.navigation {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.filters {
+    margin-bottom: 56px;
+
+    & > div {
+        padding: 0 0.6rem;
+    }
+
+    & > div:first-child {
+        padding-left: 0;
+    }
+    
+    & > div:last-child {
+        padding-right: 0;
+    }
+}

@@ -1,0 +1,55 @@
+.userMenuContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px;
+  
+    .userLink {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      margin-bottom: 30px;
+      text-decoration: none;
+      color: black;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    .linksContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 80px;
+  
+      .link{
+        text-decoration: none;
+        color: black;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      #button {
+        text-decoration: none;
+      }
+    }
+  
+    .profileInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    #logOutButton {
+      padding: 0;
+      border: 0;
+      width: fit-content;
+      &:hover {
+        transition: 0s;
+        background: none;
+        text-decoration: underline;
+      }
+    }
+}
+  

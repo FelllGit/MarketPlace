@@ -8,7 +8,6 @@ const components: Components<Theme> = {
         backgroundColor: 'transparent',
         color: '#000',
         marginTop: '30px',
-        marginBottom: '98px',
         boxShadow: 'none',
       },
     },
@@ -27,17 +26,14 @@ const components: Components<Theme> = {
       }),
     },
   },
-  MuiGrid: {
+  MuiOutlinedInput: {
     styleOverrides: {
       root: () => ({
-        padding: '0px',
-      }),
-      item: () => ({
-        margin: 'auto',
-        padding: '4px',
-      }),
-    },
-  },
+        paddingRight: '0',
+        paddingLeft: '20px'
+      })
+    }
+  }
 };
 
 export default components;
