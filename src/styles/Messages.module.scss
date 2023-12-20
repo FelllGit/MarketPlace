@@ -1,0 +1,56 @@
+:root {
+  --dynamic-padding: 0; // default value
+}
+
+.messagesContainer {
+  flex-direction: column;
+}
+
+.leftSideContainer {
+  display: flex;
+  flex-direction: column !important;
+  border: solid 1px #868686;
+  height: 100vh;
+}
+
+.topToolbar {
+  display: flex;
+  gap: 50px;
+  justify-content: flex-end;
+  padding: 36px 30px;
+  border-bottom: solid 1px #868686;
+
+  & > * {
+    display: flex;
+    justify-items: center;
+  }
+}
+
+.rightSideContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  border: solid 1px #868686;
+  height: 100vh;
+}
+
+.noMessages {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: var(--dynamic-padding);
+  gap: 20px;
+}
+
+.tradeOptions {
+  display: flex;
+  gap: 30px;
+  padding: 20px 16px;
+}

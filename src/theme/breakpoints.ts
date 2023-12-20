@@ -1,16 +1,17 @@
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
-    xl: false;
+    xxs: true;
   }
 }
 
 const breakpoints = {
   values: {
-    xs: 0,
-    sm: 320,
-    md: 768,
-    lg: 1280,
-    xl: false,
+    xxs: 320,
+    xs: 720,
+    sm: 1025,
+    md: 1440,
+    lg: 2560,
+    xl: 3656,
   },
 };
 

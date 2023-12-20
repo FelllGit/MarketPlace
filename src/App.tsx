@@ -1,23 +1,23 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Home from './components/Home/Home';
-import SharedLayout from './components/SharedLayout/SharedLayout';
-import CreateAdPage from './components/CreateAdPage/CreateAdPage';
-import Account from './components/Account/Account';
-import Advertisement from './components/Account/pages/Advertisement';
-import Messages from './components/Account/pages/Messages';
-import Active from './components/Account/pages/AdvertisementPages/Active';
-import Waiting from './components/Account/pages/AdvertisementPages/Waiting';
-import Unpaid from './components/Account/pages/AdvertisementPages/Unpaid';
-import Inactive from './components/Account/pages/AdvertisementPages/Inactive';
-import Rejected from './components/Account/pages/AdvertisementPages/Rejected';
-import Settings from './components/Account/pages/Settings';
-import Login from './components/Authrotization/LogIn';
-import Signup from './components/Authrotization/SingUp';
-import CheckMail from './components/Authrotization/CheckMail';
-import Code from './components/Authrotization/Code';
-import CompleteProfile from './components/Authrotization/CompleteProfile';
-import AuthrotizationLayout from './components/Authrotization/AuthorizationLayout';
+import Home from './Pages/Home/Home';
+import SharedLayout from './Pages/SharedLayout/SharedLayout';
+import CreateAdPage from './Pages/CreateAdPage/CreateAdPage';
+import Account from './Pages/Account/Account';
+import Advertisement from './Pages/Account/Advertisement';
+import Messages from './Pages/Account/Messages';
+import Active from './Pages/Account/AdvertisementPages/Active';
+import Waiting from './Pages/Account/AdvertisementPages/Waiting';
+import Unpaid from './Pages/Account/AdvertisementPages/Unpaid';
+import Inactive from './Pages/Account/AdvertisementPages/Inactive';
+import Rejected from './Pages/Account/AdvertisementPages/Rejected';
+import Settings from './Pages/Account/Settings';
+import Login from './Pages/Authrotization/LogIn';
+import Signup from './Pages/Authrotization/SingUp';
+import CheckMail from './Pages/Authrotization/CheckMail';
+import Code from './Pages/Authrotization/Code';
+import CompleteProfile from './Pages/Authrotization/CompleteProfile';
+import AuthrotizationLayout from './Pages/Authrotization/AuthorizationLayout';
 
 const router = createBrowserRouter([
   {
@@ -73,15 +73,15 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: 'login',
-        element: <Login />
-      },
-      {
-        path: 'signup',
+        path: 'auth',
         element: <AuthrotizationLayout />,
         children: [
           {
             index: true,
+            element: <Login />
+          },
+          {
+            path: 'signup',
             element: <Signup />
           },
           {
